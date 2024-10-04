@@ -22,10 +22,11 @@ app.get('/', (req, res) => {
 })
 app.get('/makeholiday', async (req, res) => {
     const holiday = new Holidays({
-        title: 'Holiday hotspot in Italy',
-        price: 500, 
-        description: 'This is a holiday of a lifetime',
-        location: 'Italy' });
+        destination: "Italy", 
+        accom_price: 500, 
+        accom_description: "This is a holiday of a lifetime" , 
+        duration: 10 
+    });
     await holiday.save();
     res.send(holiday);
 })
