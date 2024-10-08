@@ -1,6 +1,6 @@
 module.exports = [
 {
-    destination: "London, Uk",
+    destination: "London",
     start_date: "05/01/2023", 
     end_date: "05/08/2023",
     duration: 7, 

@@ -20,15 +20,9 @@ app.set('views', path.join(__dirname, 'views'))
 app.get('/', (req, res) => {
     res.render('home');
 })
-app.get('/makeholiday', async (req, res) => {
-    const holiday = new Holidays({
-        destination: "Italy", 
-        accom_price: 500, 
-        accom_description: "This is a holiday of a lifetime" , 
-        duration: 10 
-    });
-    await holiday.save();
-    res.send(holiday);
+app.get('/holidays', async (req, res) => {
+    const holidays = await Holidays.find({});
+    res.render("holidays/index", {holidays});
 })
 
 app.listen(port, () => {

@@ -14,7 +14,7 @@ const seedDb = async() => {
     await Holidays.deleteMany({});
     for (let i = 0; i < 25; i++){
         const country = new Holidays({
-            destination: `${countries[i].destination}, ${countries[i].traveler_name}`
+            destination: `${countries[i].destination}`
         })
         await country.save();
         }
