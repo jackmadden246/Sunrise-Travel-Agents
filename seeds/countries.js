@@ -1,4 +1,5 @@
-module.exports = {
+module.exports = [
+{
     Destination: "London, Uk",
     Start_date: "05/01/2023", 
     End_date: "05/08/2023",
@@ -435,5 +436,5 @@ module.exports = {
     Transportation_cost: 500
 }
 				
-											
+]										
 	
