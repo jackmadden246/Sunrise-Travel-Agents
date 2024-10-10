@@ -9,7 +9,7 @@
     <h1> Popular Holiday Destinations</h1>
     <ul> 
         <% for (let holiday of holidays) { %>
-        <li><%=holiday.destination %></li>
+        <li><a href="<%=holiday._id %>">%=holiday.destination%></li></a>
         <% }%>
     </ul>
 </body>

@@ -22,7 +22,11 @@ app.get('/', (req, res) => {
 })
 app.get('/holidays', async (req, res) => {
     const holidays = await Holidays.find({});
-    res.render("holidays/index", {holidays});
+    res.render('holidays/index', {holidays});
+})
+
+app.get('/holidays/:id', async (req, res) => {
+    res.render('holidays/show');
 })
 
 app.listen(port, () => {
