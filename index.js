@@ -26,10 +26,15 @@ app.get('/holidays', async (req, res) => {
 })
 
 app.get('/holidays/:id', async (req, res) => {
-    const holiday = await Holidays.findById(req.params.id)
+    const holiday = await Holidays.findById(req.params.id);
     res.render('holidays/show', {holiday});
 })
 
 app.listen(port, () => {
     console.log('Listening....');
+})
+
+app.get('/holidays/:id/delete', async (req, res) => {
+    const holiday = awaitHolidays.findByIdAndDelete(req.params.id);
+    res.render('holidays/delete')
 })
