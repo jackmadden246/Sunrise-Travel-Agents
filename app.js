@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const port = 3000;
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const Holidays = require('./models/holidays');
 
 mongoose.connect('mongodb://localhost:27017/holidays');
@@ -18,6 +19,7 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({extended: true}))
+app.use(methodOverride(_method));
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -45,11 +47,15 @@ app.get('/holidays/:id/edit', async (req, res) => {
     res.render('holidays/edit', {holiday});
 })
 
+app.put('/holidays/:id', async (req, res) => {
+    
+})
+// app.get('/holidays/:id/delete', async (req, res) => {
+//     const holiday = awaitHolidays.findByIdAndDelete(req.params.id);
+//     res.render('holidays/delete')
+// })
+
 app.listen(port, () => {
     console.log('Listening....');
 })
 
-app.get('/holidays/:id/delete', async (req, res) => {
-    const holiday = awaitHolidays.findByIdAndDelete(req.params.id);
-    res.render('holidays/delete')
-})

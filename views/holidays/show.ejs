@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show trips</title>
+    <title>Show Holidays</title>
     
 </head>
 <body>
     <h1><%= holiday.traveler_name %></h1>
     <h2><%= holiday.destination %></h2>
+    <footer> 
+    <a href="/holidays/<%=holiday._id%>/edit"> Edit Holiday</a>
     <a href="/holidays"> All Holidays</a>
+</footer>
 </body>
 </html>

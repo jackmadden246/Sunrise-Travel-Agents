@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit a holiday</title>
+</head>
+<body>
+    <h1> Edit a Holiday</h1>
+    <form action="/holidays" method="POST">
+        <div>
+            <label for="traveler_name"> Traveler Name</label>
+                <input type="text" id="traveler" name="holiday[traveler_name]" value="<%= holiday.traveler_name %>">
+                <div>
+                <label for="destination"> Destination</label>
+                <input type="text" id="destination" name="holiday[destination]" value="<%= holiday.destination %>">
+            </div>
+            <button> Edit Holiday</button>
+        </div>
+    </form>
+        <a href="/holidays/<%=holiday._id%>"> Back to All Holidays</a>
+</body>
+</html>
