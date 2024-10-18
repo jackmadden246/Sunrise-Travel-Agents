@@ -9,9 +9,14 @@
 <body>
     <h1><%= holiday.traveler_name %></h1>
     <h2><%= holiday.destination %></h2>
-    <footer> 
+   
     <a href="/holidays/<%=holiday._id%>/edit"> Edit Holiday</a>
-    <a href="/holidays"> All Holidays</a>
+   <form action="/holidays/<%= holiday._id %>?_method=DELETE" method="POST">
+    <button> Delete Holiday</button>
+   </form>
+   <footer> 
+   <a href="/holidays"> All Holidays</a>
 </footer>
+
 </body>
 </html>
