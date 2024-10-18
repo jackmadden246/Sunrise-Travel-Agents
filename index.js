@@ -26,7 +26,8 @@ app.get('/holidays', async (req, res) => {
 })
 
 app.get('/holidays/:id', async (req, res) => {
-    res.render('holidays/show');
+    const holiday = await Holidays.findById(req.params.id)
+    res.render('holidays/show', {holiday});
 })
 
 app.listen(port, () => {
