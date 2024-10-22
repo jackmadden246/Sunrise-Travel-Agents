@@ -1,11 +1,24 @@
     <% layout('layouts/boilerplate') %>
-    <h1> Popular Holiday Destinations</h1>
-    <div>
+    <h1 class="container mt-5"> Popular Holiday Destinations</h1>
+    <div> 
         <a href="/holidays/new"> Add Holiday</a>
     </div>
         <% for (let holiday of holidays) { %>
-            <div class="card" mb-3></div>
-            <div class="row"></div>
-            <div class="col-md-4"></div>
-            <img class="img-fluid" src = <%= holiday.image %> alt="">
+            <div class="card" mb-3>
+                <div class="row">
+                    <div class="col-md-4">
+                    <img class="img-fluid" src = <%= holiday.image %> alt="">
+                </div>
+                
+                <div class="div md-8">
+                    <div class="card-body">
+                    <h5 class= "card-title"><%= holiday.destination %></h5>
+                    <p class="card-text"><%= holiday.accommodation_description %></p>
+                    <small class="text-muted"><%=`We are offering a holiday here for ${holiday.duration} days` %></small>
+                </div>
+                </div>
+                </div>
+                </div>
+                    
+                    
         <% }%>
