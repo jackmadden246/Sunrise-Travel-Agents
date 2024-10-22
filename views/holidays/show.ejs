@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Holidays</title>
+<% layout('layouts/boilerplate') %>
+    <title>Holiday Details</title>
     
 </head>
 <body>
-    <h1><%= holiday.traveler_name %></h1>
-    <h2><%= holiday.destination %></h2>
-   
+    <div> 
+    <h1> Sucess Stories</h1>
+    <p> <%= `${holiday.traveler_name} travelled to ${holiday.destination}`%><p>
+    <img src="<%= holiday.image%>">
+    <p><%=`Total cost of holiday: $${holiday.accommodation_cost + holiday.transportation_cost}` %></p>
+</div>
     <a href="/holidays/<%=holiday._id%>/edit"> Edit Holiday</a>
    <form action="/holidays/<%= holiday._id %>?_method=DELETE" method="POST">
     <button> Delete Holiday</button>
    </form>
    <footer> 
    <a href="/holidays"> All Holidays</a>
-</footer>
-
-</body>
-</html>
+</footer> 

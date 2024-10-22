@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holidays</title>
-</head>
-<body>
+    <% layout('layouts/boilerplate') %>
     <h1> Popular Holiday Destinations</h1>
     <div>
         <a href="/holidays/new"> Add Holiday</a>
     </div>
-    <ul> 
         <% for (let holiday of holidays) { %>
-        <li><a href="holidays/<%=holiday._id %>"><%= holiday.destination %></a></li>
+            <div class="card" mb-3></div>
+            <div class="row"></div>
+            <div class="col-md-4"></div>
+            <img class="img-fluid" src = <%= holiday.image %> alt="">
         <% }%>
-    </ul>
-</body>
-</html>
