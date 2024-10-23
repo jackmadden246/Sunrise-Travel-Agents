@@ -10,11 +10,12 @@
                     <img class="img-fluid" src = <%= holiday.image %> alt="">
                 </div>
                 
-                <div class="div md-8">
+                <div class="md-8">
                     <div class="card-body">
                     <h5 class= "card-title"><%= holiday.destination %></h5>
                     <p class="card-text"><%= holiday.accommodation_description %></p>
                     <small class="text-muted"><%=`We are offering a holiday here for ${holiday.duration} days` %></small>
+                    <a class="btn btn-primary" href="/holidays/<%= holiday._id%>">View details</a>
                 </div>
                 </div>
                 </div>

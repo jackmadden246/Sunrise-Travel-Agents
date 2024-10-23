@@ -1,17 +1,50 @@
 <% layout('layouts/boilerplate') %>
-    <title>Add a new holiday</title>
-</head>
-<body>
-    <h1> Add a Holiday</h1>
-    <form action="/holidays" method="POST">
-        <div>
-            <label for="traveler_name"> Traveler Name</label>
-                <input type="text" id="traveler" name="holiday[traveler_name]">
-                <div>
-                <label for="destination"> Destination</label>
-                <input type="text" id="destination" name="holiday[destination]">
-            </div>
-            <button> Add Holiday</button>
-        </div>
-    </form>
-        <a href="holidays"> All Holidays</a>
+    <div class="row">
+        <h1 class="text-center mt-5">Add a new holiday</h1>
+        <div class="col-6 offset-3">
+            <form action="/holidays" method="POST">
+                <div class="mb-3">
+                    <label class="form-label" for="destination"> Destination</label>
+                        <input class="form-control" type="text" id="destination" name="holiday[destination]">
+                </div>
+                <div class="mb-3">
+                        <label class="form-label" for="duration"> Duration</label>
+                        <input class="form-control" type="text" id="duration" name="holiday[duration]">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="age"> Minimum Age</label>
+                        <input class="form-control" type="text" id="age" name="holiday[traveler_age]">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="transportation_type"> Transportation Type</label>
+                        <input class="form-control" type="text" id="transportation_type" name="holiday[transportation_type]">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="accommodation_type"> Accommodation Type</label>
+                        <input class="form-control" type="text" id="accommodation_type" name="holiday[accommodation_type]">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="image"> Image Url</label>
+                            <input class="form-control" type="text" id="image" name="holiday[image]">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="cost-accomm-label"> Accommodation Cost</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="cost-accomm-label">$</span>
+                            <input type="text" class="form-control" name="holiday[accommodation_cost]"placeholder="0.00" id="cost-label" aria-describedby="basic-addon1">
+                          </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="trans-cost-label"> Transportation Cost</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="trans-cost-label">$</span>
+                            <input type="text" class="form-control" name="holiday[transportation_cost]"placeholder="0.00" id="cost-label" aria-describedby="basic-addon1">
+                          </div>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success"> Add Holiday</button>
+                    </div>
+            </form>
+                <a href="holidays"> All Holidays</a>
+    </div
+    
