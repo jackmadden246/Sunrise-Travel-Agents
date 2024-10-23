@@ -231,7 +231,7 @@ module.exports = [
     end_date: "09/10/2023",
     duration: 9, 
     traveler_name: "Sarah Johnson",
-    taveler_age: 30,	
+    traveler_age: 30,	
     traveler_gender: "Female",	
     traveler_nationality: "American",
     accommodation_type: "Hotel",

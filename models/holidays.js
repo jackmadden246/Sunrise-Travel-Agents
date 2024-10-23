@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 const HolidaysSchema = new Schema({
     destination: String, 
+    image: String, 
     start_date: Date, 
     end_date: Date,
     traveler_name: String,
-    accom_price: Number, 
-    accom_description: String, 
+    accommodation_description: String, 
     traveler_age: Number,
     traveler_gender: String,
     traveler_nationality: String, 

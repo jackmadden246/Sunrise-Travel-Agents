@@ -1,4 +1,5 @@
 const express = require('express');
+const ejsMate = require('ejs-mate');
 const path = require('path');
 const port = 3000;
 const mongoose = require('mongoose');
@@ -19,7 +20,8 @@ app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname, 'views'))
 
 app.use(express.urlencoded({extended: true}))
-app.use(methodOverride(_method));
+app.use(methodOverride('_method'));
+app.engine('ejs', ejsMate);
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -48,12 +50,15 @@ app.get('/holidays/:id/edit', async (req, res) => {
 })
 
 app.put('/holidays/:id', async (req, res) => {
-    
+    const {id} = req.params;
+    const holiday = await Holidays.findByIdAndUpdate(id, {...req.body.holiday})
+    res.redirect(`/holidays/${holiday._id}`)
 })
-// app.get('/holidays/:id/delete', async (req, res) => {
-//     const holiday = awaitHolidays.findByIdAndDelete(req.params.id);
-//     res.render('holidays/delete')
-// })
+app.delete('/holidays/:id', async (req, res) => {
+    const {id} = req.params;
+    const holiday = await Holidays.findByIdAndDelete(id);
+    res.redirect('/holidays')
+})
 
 app.listen(port, () => {
     console.log('Listening....');

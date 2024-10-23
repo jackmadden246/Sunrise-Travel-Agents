@@ -2,49 +2,70 @@
     <div class="row">
         <h1 class="text-center mt-5">Add a new holiday</h1>
         <div class="col-6 offset-3">
-            <form action="/holidays" method="POST">
+            <form action="/holidays" method="POST" novalidate class="validate-form">
                 <div class="mb-3">
                     <label class="form-label" for="destination"> Destination</label>
-                        <input class="form-control" type="text" id="destination" name="holiday[destination]">
+                        <input class="form-control" type="text" id="destination" name="holiday[destination]" required>
+                        <div class="valid-feedback">
+                            Looks Nice!
                 </div>
                 <div class="mb-3">
                         <label class="form-label" for="duration"> Duration</label>
-                        <input class="form-control" type="text" id="duration" name="holiday[duration]">
+                        <input class="form-control" type="text" id="duration" name="holiday[duration]" required>
+                        <div class="valid-feedback">
+                            Looks Nice!
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="age"> Minimum Age</label>
-                        <input class="form-control" type="text" id="age" name="holiday[traveler_age]">
+                        <input class="form-control" type="text" id="age" name="holiday[traveler_age]" required>
+                        <div class="valid-feedback">
+                            Looks Nice!
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="transportation_type"> Transportation Type</label>
-                        <input class="form-control" type="text" id="transportation_type" name="holiday[transportation_type]">
+                        <input class="form-control" type="text" id="transportation_type" name="holiday[transportation_type]" required>
+                        <div class="valid-feedback">
+                            Looks Nice!
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="accommodation_type"> Accommodation Type</label>
-                        <input class="form-control" type="text" id="accommodation_type" name="holiday[accommodation_type]">
+                        <input class="form-control" type="text" id="accommodation_type" name="holiday[accommodation_type]" required>
+                        <div class="valid-feedback">
+                            Looks Nice!
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="image"> Image Url</label>
-                            <input class="form-control" type="text" id="image" name="holiday[image]">
+                            <input class="form-control" type="text" id="image" name="holiday[image]" required>
+                            <div class="valid-feedback">
+                                Looks Nice!
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="cost-accomm-label"> Accommodation Cost</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="cost-accomm-label">$</span>
-                            <input type="text" class="form-control" name="holiday[accommodation_cost]"placeholder="0.00" id="cost-label" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="holiday[accommodation_cost]"placeholder="0.00" 
+                            id="cost-label" aria-describedby="basic-addon1" required>
+                            <div class="valid-feedback">
+                                Looks Nice!
                           </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="trans-cost-label"> Transportation Cost</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="trans-cost-label">$</span>
-                            <input type="text" class="form-control" name="holiday[transportation_cost]"placeholder="0.00" id="cost-label" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" name="holiday[transportation_cost]"placeholder="0.00" 
+                            id="cost-label" aria-describedby="basic-addon1" required>
+                            <div class="valid-feedback">
+                                Looks Nice!
                           </div>
                     </div>
                     <div class="mb-3">
                         <button class="btn btn-success"> Add Holiday</button>
                     </div>
+
+                    
             </form>
                 <a href="holidays"> All Holidays</a>
-    </div
+        </div>
+        
     

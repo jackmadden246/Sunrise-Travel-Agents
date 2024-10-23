@@ -12,9 +12,10 @@ db.once('open', () => {
 
 const seedDb = async() => {
     await Holidays.deleteMany({});
-    for (let i = 0; i < 25; i++){
+    for (let i = 0; i < 30; i++){
         const country = new Holidays({
             destination: `${countries[i].destination}`,
+            image: `https://picsum.photos/400?random=${Math.random()}`,
             start_date: `${countries[i].start_date}`,
             duration: `${countries[i].duration}`,
             traveler_name: `${countries[i].traveler_name}`,
@@ -23,6 +24,7 @@ const seedDb = async() => {
             traveler_nationality: `${countries[i].traveler_nationality}`,
             accommodation_type: `${countries[i].accommodation_type}`,
             accommodation_cost: `${countries[i].accommodation_cost}`,
+            accommodation_description: `${countries[i].destination} is full of amazing sights. Please see our website for more deals and details!`,
             transportation_type: `${countries[i].transportation_type}`,
             transportation_cost: `${countries[i].transportation_cost}`
         
