@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const Holidays = require('./models/holidays');
 const asyncCatch = require('./helpers/asyncCatch');
 const appError = require('./helpers/appError');
+const {holidaySchema} = require('./validation.js')
 
 mongoose.connect('mongodb://localhost:27017/holidays');
 
@@ -25,6 +26,17 @@ app.use(express.urlencoded({extended: true}))
 app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 
+const validateHoliday = (req, res, next) => {
+        const {error} = holidaySchema.validate(req.body);
+        if (error) {
+            const message = error.details.map(el => el.message).join(',')
+            throw new appError(message, 400)
+        }
+        else {
+            next();
+        }
+}
+
 app.get('/', (req, res) => {
     res.render('home');
 })
@@ -36,8 +48,7 @@ app.get('/holidays', asyncCatch(async (req, res) => {
 app.get('/holidays/new', asyncCatch(async (req, res) => {
     res.render('holidays/new');
 }))
-app.post('/holidays', asyncCatch(async (req, res, next) => {
-    if (!req.body.holiday) throw new appError('Invalid Holiday Data', 400)
+app.post('/holidays', validateHoliday,asyncCatch(async (req, res, next) => {
     const holiday = new Holidays (req.body.holiday);
     await holiday.save();
     res.redirect(`/holidays/${holiday._id}`)
@@ -52,7 +63,7 @@ app.get('/holidays/:id/edit', asyncCatch(async (req, res) => {
     res.render('holidays/edit', {holiday});
 }))
 
-app.put('/holidays/:id', asyncCatch(async (req, res) => {
+app.put('/holidays/:id', validateHoliday, asyncCatch(async (req, res) => {
     const {id} = req.params;
     const holiday = await Holidays.findByIdAndUpdate(id, {...req.body.holiday})
     res.redirect(`/holidays/${holiday._id}`)
